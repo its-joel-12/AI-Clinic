@@ -275,6 +275,7 @@ Rules:
 - Use facts from both sources.
 - Do not invent data (vitals, labs, etc.).
 - If a section lacks information, output "Not discussed."
+- Return plain text only; avoid Markdown, bullet symbols, or decorative characters.
 
 Transcript:
 ---
@@ -293,6 +294,7 @@ Create a fact-based DAP note (Data, Assessment, Plan) from the dialog/narrative 
 - Use only information explicitly provided.
 - If a section has no data, write "Not discussed."
 - Output only the final DAP note.
+- Return plain text only; avoid Markdown, bullet symbols, or decorative characters.
 
 Transcript:
 ---
@@ -311,6 +313,7 @@ Produce a concise BIRP note using only the supplied information.
 - R: Patient response.
 - P: Follow-up / plan.
 - Do not invent details.
+- Return plain text only; avoid Markdown, bullet symbols, or decorative characters.
 
 Transcript:
 ---
