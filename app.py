@@ -662,7 +662,7 @@ def generate_medical_codes(
     user_prompt = (
         "Clinical Notes:\n" + clinical_notes.strip() + "\n\n"
         "Output format (strict JSON object, no markdown, no commentary):\n"
-        "{\n  \"<CODE>\": \"<brief evidence from notes>\",\n  \"<CODE>\": \"<brief evidence from notes>\"\n}"
+        "{\n  \"<CODE>\": \"<brief evidence from notes in less then 15 words>\",\n  \"<CODE>\": \"<brief evidence from notes in less then 15 words>\"\n}"
     )
 
     resp = _client.chat.completions.create(
