@@ -275,6 +275,7 @@ Rules:
 - Use facts from both sources.
 - Do not invent data (vitals, labs, etc.).
 - If a section lacks information, output "Not discussed."
+- Return plain text only; avoid Markdown, bullet symbols, or decorative characters.
 
 Transcript:
 ---
@@ -293,6 +294,7 @@ Create a fact-based DAP note (Data, Assessment, Plan) from the dialog/narrative 
 - Use only information explicitly provided.
 - If a section has no data, write "Not discussed."
 - Output only the final DAP note.
+- Return plain text only; avoid Markdown, bullet symbols, or decorative characters.
 
 Transcript:
 ---
@@ -311,6 +313,7 @@ Produce a concise BIRP note using only the supplied information.
 - R: Patient response.
 - P: Follow-up / plan.
 - Do not invent details.
+- Return plain text only; avoid Markdown, bullet symbols, or decorative characters.
 
 Transcript:
 ---
@@ -659,7 +662,7 @@ def generate_medical_codes(
     user_prompt = (
         "Clinical Notes:\n" + clinical_notes.strip() + "\n\n"
         "Output format (strict JSON object, no markdown, no commentary):\n"
-        "{\n  \"<CODE>\": \"<brief evidence from notes>\",\n  \"<CODE>\": \"<brief evidence from notes>\"\n}"
+        "{\n  \"<CODE>\": \"<brief evidence from notes in less then 15 words>\",\n  \"<CODE>\": \"<brief evidence from notes in less then 15 words>\"\n}"
     )
 
     resp = _client.chat.completions.create(
