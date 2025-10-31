@@ -792,9 +792,9 @@ def generate_summary_endpoint() -> Any:
 
     # Collect results independently so one failure doesn't hide the other
     try:
-        result["visit_discharge_summary"] = fut_summary.result()
+        result["summary"] = fut_summary.result()
     except Exception as exc:
-        result["visit_discharge_summary"] = {"error": str(exc)}
+        result["summary"] = {"error": str(exc)}
     try:
         result["medical_codes"] = fut_codes.result()
     except Exception as exc:
@@ -824,5 +824,5 @@ def _generate_summary_options():  # pragma: no cover
     return ("", 204)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "5001"))
+    port = int(os.environ.get("PORT", "5000"))
     app.run(host="0.0.0.0", port=port, debug=True)
